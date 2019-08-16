@@ -89,6 +89,41 @@ window-screen-width.html: [fail, Test not applicable - no output device]
 
 ---
 
+DIR: custom-elements
+
+CustomElementRegistry.html: [fail, Promise identity discontinuity,
+                                   webidl2js doesn't deal well with tests using Proxies to verify properties access]
+Document-createElement.html: [fail, :defined is not defined and throws,
+                                    TODO - createElement should report error instead of throwing]
+HTMLElement-constructor.html: [fail, webidl2js doesn't deal well with tests using Proxies to verify properties access]
+attribute-changed-callback.html: [fail, attributeChangedCallback doesn't work with CSSStyleDeclaration]
+custom-element-reaction-queue.html: [fail, Document.write implementation is not spec compliant]
+custom-element-registry/per-global.html: [fail, iframe location related issue]
+htmlconstructor/newtarget.html: [fail, interface prototype are shared accross realms]
+microtasks-and-constructors.html: [fail, Usage of external scripts doesn't block HTML parsing, https://github.com/jsdom/jsdom/issues/2413]
+parser/parser-constructs-custom-element-synchronously.html: [fail, Usage of external scripts doesn't block HTML parsing, https://github.com/jsdom/jsdom/issues/2413]
+parser/parser-sets-attributes-and-children.html: [fail, Usage of external scripts doesn't block HTML parsing, https://github.com/jsdom/jsdom/issues/2413]
+parser/parser-uses-constructed-element.html: [fail, Usage of external scripts doesn't block HTML parsing, https://github.com/jsdom/jsdom/issues/2413]
+parser/parser-uses-registry-of-owner-document.html: [fail, TODO]
+parser/serializing-html-fragments.html: [fail, parse5 doesn't support is attribute for serialization]
+perform-microtask-checkpoint-before-construction.html: [fail, impossible to implement microtask checkpoint without patching Promise]
+pseudo-class-defined.html: [timeout, :defined is not defined and throws]
+range-and-constructors.html: [fail, Range is not implemented, https://github.com/jsdom/jsdom/issues/317]
+reactions/CSSStyleDeclaration.html: [fail, CSSStyleDeclaration is not implemented using wedidl2js]
+reactions/Document.html: [fail,
+  Document.execCommand is not implemented, https://github.com/jsdom/jsdom/issues/1539
+  Document.write implementation is not spec compliant]
+reactions/ElementContentEditable.html: [fail, contentEditable is not implemented]
+reactions/HTMLButtonElement.html: [fail, HTMLButtonElement doesn't implement formAction formEnctype and formMethod]
+reactions/HTMLElement.html: [fail, translate and spellcheck attributes are not implemented on HTMLElement]
+reactions/Range.html: [fail, Range is not implemented, https://github.com/jsdom/jsdom/issues/317]
+reactions/Selection.html: [fail, Selection is not implemented, https://github.com/jsdom/jsdom/issues/937]
+throw-on-dynamic-markup-insertion-counter-construct.html: [timeout, Document.write implementation is not spec compliant]
+throw-on-dynamic-markup-insertion-counter-reactions.html: [timeout, Document.write implementation is not spec compliant]
+upgrading/Document-importNode.html: [fail, HTMLElement constructor is patched for each window and is different than the one used via createElement, TODO]
+
+---
+
 DIR: dom/abort
 
 ---
@@ -851,7 +886,6 @@ DIR: shadow-dom
 
 Document-prototype-currentScript.html: [timeout, Test not up to date next with updating wpt it should work]
 DocumentOrShadowRoot-prototype-elementFromPoint.html: [fail, offsetTop not implemented]
-Element-interface-attachShadow-custom-element.html: [fail, CustomElement.define is not implemented]
 MouseEvent-prototype-offsetX-offsetY.html: [fail, offsetTop not implemented]
 Range-prototype-insertNode.html: [fail, Range is not implemented]
 ShadowRoot-interface.html: [fail, shadowRoot.styleSheet and shadowRoot.activeElement are not yet implemented]
@@ -860,7 +894,6 @@ leaktests/html-collection.html: [fail, Document.all is not implemented]
 leaktests/window-frames.html: [fail, Window.name is not implemeneted]
 offsetParent-across-shadow-boundaries.html: [fail, offsetParent not implemented]
 scroll-to-the-fragment-in-shadow-tree.html: [fail, Requires a layout engine]
-slotchange-customelements.html: [fail, CustomElement.define is not implemented]
 untriaged/elements-and-dom-objects/shadowroot-object/shadowroot-attributes/activeElement-confirm-return-null.html: [fail, ShadowRoot.activeElement is not implemented]
 untriaged/elements-and-dom-objects/shadowroot-object/shadowroot-attributes/test-007.html: [fail, ShadowRoot.activeElement is not implemented]
 untriaged/elements-and-dom-objects/shadowroot-object/shadowroot-attributes/test-011.html: [fail, ShadowRoot.stylesheets is not implemented]
