@@ -1,6 +1,6 @@
 {
-  "name": "jsdom",
-  "version": "15.1.1",
+  "name": "@amindunited/jsdom",
+  "version": "0.0.0",
   "description": "A JavaScript implementation of many web standards",
   "keywords": [
     "dom",
@@ -17,7 +17,10 @@
     "Zirro <code@zirro.se>"
   ],
   "license": "MIT",
-  "repository": "@amindunited/jsdom-wc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amindunited/jsdom.git"
+  },
   "dependencies": {
     "abab": "^2.0.0",
     "acorn": "^6.1.1",
