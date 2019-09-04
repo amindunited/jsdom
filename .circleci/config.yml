@@ -11,14 +11,14 @@ defaults: &defaults
 
 jobs:
   test:
-    <<: *defaults
+    branches:
+      only:
+        - amindunited/custom-elements
     steps:
       - checkout
 
       - restore_cache:
           keys:
-          - v1-dependencies-
-    # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run: npm install
@@ -35,7 +35,9 @@ jobs:
           root: ~/repo
           paths: .
   deploy:
-    <<: *defaults
+    branches:
+      only:
+        - amindunited/custom-elements
     steps:
       - attach_workspace:
           at: ~/repo
@@ -54,6 +56,9 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              only:
+                - amindunited/custom-elements
       - deploy:
           requires:
             - test
@@ -61,4 +66,6 @@ workflows:
             tags:
               only: /^v.*/
             branches:
+              only:
+                - amindunited/custom-elements
               ignore: /.*/
